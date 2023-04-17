@@ -2,6 +2,8 @@ use leptos::*;
 use leptos_meta::*;
 use leptos_router::*;
 
+use crate::pages::quiz::{Quiz, QuizProps};
+
 #[component]
 pub fn App(cx: Scope) -> impl IntoView {
     // Provides context that manages stylesheets, titles, meta tags, etc.
@@ -19,9 +21,14 @@ pub fn App(cx: Scope) -> impl IntoView {
 
         // content for this welcome page
         <Router>
+            <nav>
+                <A href="/">"Home"</A>
+                <A href="quiz">"Quiz"</A>
+            </nav>
             <main>
                 <Routes>
-                    <Route path="" view=|cx| view! { cx, <HomePage/> }/>
+                    <Route path="/" view=|cx| view! { cx, <HomePage /> } />
+                    <Route path="quiz" view=|cx| view! {cx, <Quiz />} />
                 </Routes>
             </main>
         </Router>
