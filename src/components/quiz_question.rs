@@ -13,8 +13,8 @@ pub fn QuizQuestion(cx: Scope, question: QuizQuestionData) -> impl IntoView {
             view=move |cx, answer: String| {
                 view! {
                     cx,
-                        <input type="radio" id=answer.clone() name=question.id.clone() value=answer.clone() />
-                        <label for=answer.clone()>{answer.clone()}</label><br />
+                    <input type="radio" id=answer.clone() name=question.id.clone() value=answer.clone() />
+                    <label for=answer.clone()>{answer.clone()}</label>
                 }
             }
         />

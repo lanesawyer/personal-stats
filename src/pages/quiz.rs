@@ -11,12 +11,12 @@ pub struct QuizQuestionData {
 }
 
 #[component]
-pub fn Quiz(cx: Scope) -> impl IntoView {
+pub fn QuizPage(cx: Scope) -> impl IntoView {
     let answers: Vec<String> = vec![
         "0".to_string(),
         "1".to_string(),
         "2".to_string(),
-        "3".to_string()
+        "3".to_string(),
     ];
 
     let questions: Vec<QuizQuestionData> = vec![

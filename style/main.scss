@@ -1,4 +1,45 @@
+:root {
+    --primary: #64a70b;
+    --secondary: #0047bb;
+
+    --text: white;
+
+    --padding: 6px;
+    --radius: 3px;
+}
+
 body {
+    margin: 0;
 	font-family: sans-serif;
 	text-align: center;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    padding: var(--padding);
+    gap: var(--padding);
+    background-color: var(--secondary);
+}
+
+nav a {
+    text-transform: uppercase;
+    text-decoration: var(--primary) wavy underline;
+}
+
+nav a:visited {
+    color: var(--text);
+}
+
+button {
+    background-color: var(--primary);
+    border-radius: var(--radius);
+    color: var(--text);
+    cursor: pointer;
+    margin: var(--padding);
+    padding: calc(var(--padding) * 3);
+}
+
+button:hover {
+    background-color: var(--secondary);
 }

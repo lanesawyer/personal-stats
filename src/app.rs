@@ -2,7 +2,12 @@ use leptos::*;
 use leptos_meta::*;
 use leptos_router::*;
 
-use crate::pages::quiz::{Quiz, QuizProps};
+use crate::pages::{
+    home::{HomePage, HomePageProps},
+    profile::{ProfilePage, ProfilePageProps},
+    quiz::{QuizPage, QuizPageProps},
+    stats::{StatsPage, StatsPageProps}
+};
 
 #[component]
 pub fn App(cx: Scope) -> impl IntoView {
@@ -17,33 +22,24 @@ pub fn App(cx: Scope) -> impl IntoView {
         <Stylesheet id="leptos" href="/pkg/leptos_start.css"/>
 
         // sets the document title
-        <Title text="Welcome to Leptos"/>
+        <Title text="Personal Stats"/>
 
         // content for this welcome page
         <Router>
             <nav>
                 <A href="/">"Home"</A>
                 <A href="quiz">"Quiz"</A>
+                <A href="stats">"Stats"</A>
+                <A href="profile">"Profile"</A>
             </nav>
             <main>
                 <Routes>
                     <Route path="/" view=|cx| view! { cx, <HomePage /> } />
-                    <Route path="quiz" view=|cx| view! {cx, <Quiz />} />
+                    <Route path="quiz" view=|cx| view! {cx, <QuizPage />} />
+                    <Route path="stats" view=|cx| view! {cx, <StatsPage />} />
+                    <Route path="profile" view=|cx| view! {cx, <ProfilePage />} />
                 </Routes>
             </main>
         </Router>
-    }
-}
-
-/// Renders the home page of your application.
-#[component]
-fn HomePage(cx: Scope) -> impl IntoView {
-    // Creates a reactive value to update the button
-    let (count, set_count) = create_signal(cx, 0);
-    let on_click = move |_| set_count.update(|count| *count += 1);
-
-    view! { cx,
-        <h1>"Welcome to Leptos!"</h1>
-        <button on:click=on_click>"Click Me: " {count}</button>
     }
 }
