@@ -6,17 +6,21 @@ use crate::pages::quiz::QuizQuestionData;
 pub fn QuizQuestion(cx: Scope, question: QuizQuestionData) -> impl IntoView {
     view! {
         cx,
-        <p>{question.text}</p>
-        <For
-            each=move || question.answers.clone()
-            key=move |answer| answer.clone()
-            view=move |cx, answer: String| {
-                view! {
-                    cx,
-                    <input type="radio" id=answer.clone() name=question.id.clone() value=answer.clone() />
-                    <label for=answer.clone()>{answer.clone()}</label>
+        <div style="margin: var(--padding)">
+            <p>{question.text}</p>
+            <For
+                each=move || question.answers.clone()
+                key=move |answer| answer.clone()
+                view=move |cx, answer: String| {
+                    let id = format!("{}-{}", question.id.clone(), answer.clone());
+
+                    view! {
+                        cx,
+                        <input type="radio" id=id.clone() name=question.id.clone() value=answer.clone() />
+                        <label for=id>{answer.clone()}</label>
+                    }
                 }
-            }
-        />
+            />
+        </div>
     }
 }
