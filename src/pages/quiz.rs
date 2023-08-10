@@ -1,7 +1,6 @@
 use leptos::*;
 
 use crate::components::quiz_question::QuizQuestion;
-use crate::components::quiz_question::QuizQuestionProps;
 
 #[derive(Clone, Eq, Hash, PartialEq)]
 pub struct QuizQuestionData {

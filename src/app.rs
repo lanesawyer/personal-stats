@@ -2,12 +2,7 @@ use leptos::*;
 use leptos_meta::*;
 use leptos_router::*;
 
-use crate::pages::{
-    home::{HomePage, HomePageProps},
-    profile::{ProfilePage, ProfilePageProps},
-    quiz::{QuizPage, QuizPageProps},
-    stats::{StatsPage, StatsPageProps}
-};
+use crate::pages::{home::HomePage, profile::ProfilePage, quiz::QuizPage, stats::StatsPage};
 
 #[component]
 pub fn App(cx: Scope) -> impl IntoView {
