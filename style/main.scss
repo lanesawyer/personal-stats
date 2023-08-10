@@ -23,6 +23,7 @@ nav {
 }
 
 nav a {
+    color: var(--text);
     text-transform: uppercase;
     text-decoration: var(--primary) wavy underline;
 }
