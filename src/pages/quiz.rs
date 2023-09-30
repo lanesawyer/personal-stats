@@ -102,34 +102,34 @@ lazy_static! {
     ];
 }
 
-#[server(GetQuiz, "/api")]
+#[server]
 pub async fn get_quiz() -> Result<Vec<QuizQuestionData>, ServerFnError> {
     // TODO: From file or database
     Ok(QUESTIONS.to_vec())
 }
 
 #[component]
-pub fn QuizPage(cx: Scope) -> impl IntoView {
-    let questions = create_resource(cx, || (), |_| async { get_quiz().await });
+pub fn QuizPage() -> impl IntoView {
+    let questions = create_resource( || (), |_| async { get_quiz().await });
 
     let questions_view = move || {
-        questions.with(cx, |questions| {
+        questions.map( |questions| {
             questions.clone().map(|questions| {
                 questions
                     .iter()
                     .map(|question| {
-                        view! { cx,
+                        view! { 
                             <QuizQuestion question=question.clone() />
                         }
                     })
-                    .collect_view(cx)
+                    .collect_view()
             })
         })
     };
 
-    view! { cx,
+    view! { 
         <h1>"Quiz"</h1>
-        <Suspense fallback=move || view! { cx, <p>"Loading questions..."</p> }>
+        <Suspense fallback=move || view! {  <p>"Loading questions..."</p> }>
             <form action="/api/quiz" method="post">
                 {questions_view}
                 <input type="submit" value="Submit Quiz" />

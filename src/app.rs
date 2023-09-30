@@ -5,12 +5,12 @@ use leptos_router::*;
 use crate::pages::{home::HomePage, profile::ProfilePage, quiz::QuizPage, stats::StatsPage};
 
 #[component]
-pub fn App(cx: Scope) -> impl IntoView {
+pub fn App() -> impl IntoView {
     // Provides context that manages stylesheets, titles, meta tags, etc.
-    provide_meta_context(cx);
+    provide_meta_context();
 
     view! {
-        cx,
+        
 
         // injects a stylesheet into the document <head>
         // id=leptos means cargo-leptos will hot-reload this stylesheet
@@ -29,10 +29,10 @@ pub fn App(cx: Scope) -> impl IntoView {
             </nav>
             <main>
                 <Routes>
-                    <Route path="/" view=|cx| view! { cx, <HomePage /> } />
-                    <Route path="quiz" view=|cx| view! {cx, <QuizPage />} />
-                    <Route path="stats" view=|cx| view! {cx, <StatsPage />} />
-                    <Route path="profile" view=|cx| view! {cx, <ProfilePage />} />
+                    <Route path="/" view=|| view! {  <HomePage /> } />
+                    <Route path="quiz" view=|| view! { <QuizPage />} />
+                    <Route path="stats" view=|| view! { <StatsPage />} />
+                    <Route path="profile" view=|| view! { <ProfilePage />} />
                 </Routes>
             </main>
         </Router>
