@@ -1,5 +1,5 @@
 [package]
-name = "leptos_start"
+name = "personal_stats"
 version = "0.1.0"
 edition = "2021"
 
@@ -13,12 +13,12 @@ console_error_panic_hook = "0.1.7"
 console_log = "1.0.0"
 cfg-if = "1.0.0"
 lazy_static = "1"
-leptos = { version = "0.5.0", default-features = false, features = [
+leptos = { version = "0.5.2", default-features = false, features = [
   "serde",
 ]}
-leptos_meta = { version = "0.5.0", default-features = false }
-leptos_actix = { version = "0.5.0", optional = true }
-leptos_router = { version = "0.5.0", default-features = false }
+leptos_meta = { version = "0.5.2", default-features = false }
+leptos_actix = { version = "0.5.2", optional = true }
+leptos_router = { version = "0.5.2", default-features = false }
 log = "0.4.19"
 serde = { version = "1", features = ["derive"] }
 simple_logger = "4.2.0"
@@ -37,7 +37,7 @@ ssr = [
 
 [package.metadata.leptos]
 # The name used by wasm-bindgen/cargo-leptos for the JS/WASM bundle. Defaults to the crate name   
-output-name = "leptos_start"
+output-name = "personal_stats"
 # The site root folder is where cargo-leptos generate all output. WARNING: all content of this folder will be erased on a rebuild. Use it in your server setup.
 site-root = "target/site"
 # The site-root relative folder where all compiled output (JS, WASM and CSS) is written
